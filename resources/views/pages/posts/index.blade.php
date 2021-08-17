@@ -21,7 +21,11 @@
                             <tr>
                                 <td>{{ $post->title }}</td>
                                 <td>
-                                    <a href="">Deletar</a>
+                                    @canTeamPermission('delete')
+                                        <a href="">Deletar</a>
+                                    @else
+                                        Não tem a Permissão
+                                    @endcanTeamPermission
                                 </td>
                             </tr>
                         @endforeach
